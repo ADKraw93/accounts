@@ -9,21 +9,23 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/v1/accounts")
+@RequestMapping("/v1")
 @RequiredArgsConstructor
 @CrossOrigin("*")
 public class AccountsController {
     private final AccountsListGenerator generator;
     private final AccountsMapper mapper;
 
-    @GetMapping
+    @GetMapping("/allAccounts")
     public ResponseEntity<AccountsListDto> getAccounts() {
         AccountsList accounts = generator.generateAccounts();
+        System.out.println("getAccounts method used");
         return ResponseEntity.ok(mapper.mapToAccountsListDto(accounts));
     }
 
-    @GetMapping(value = "{customerId}")
-    public ResponseEntity<AccountsListDto> getTask(@PathVariable Long id) throws CustomerNotFoundException {
-        return ResponseEntity.ok(mapper.mapToAccountsListDto(generator.filterAccounts(id)));
+    @GetMapping("/accounts")
+    public ResponseEntity<AccountsListDto> getCustomerData(@RequestParam Long customerId) throws CustomerNotFoundException {
+        System.out.println("getCustomerData method used");
+        return ResponseEntity.ok(mapper.mapToAccountsListDto(generator.filterAccounts(customerId)));
     }
 }
