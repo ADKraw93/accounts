@@ -13,7 +13,9 @@ spring:
       hibernate:
         ddl-auto: ${accounts.spring.jpa.hibernate.ddl-auto}
 server:
-  port: ${accounts.server.port}
+  port: 9999
+#server:
+ # port: ${accounts.server.port}
 
 # ACTUATOR INFO
 info:
@@ -21,8 +23,8 @@ info:
     name: "Accounts"
     version: "0.0.1"
     profile: ${spring.profiles.active}
-  serverInfo:
-    port: ${accounts.server.port}
+  #serverInfo:
+   # port: ${accounts.server.port}
 
 #actuator
 management:
