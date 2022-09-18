@@ -4,8 +4,6 @@ import com.app.accounts.domain.Account;
 import com.app.accounts.domain.AccountsList;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

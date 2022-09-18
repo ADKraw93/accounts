@@ -12,3 +12,30 @@ spring:
       show-sql: ${accounts.spring.jpa.show-sql}
       hibernate:
         ddl-auto: ${accounts.spring.jpa.hibernate.ddl-auto}
+server:
+  port: ${accounts.server.port}
+
+# ACTUATOR INFO
+info:
+  app:
+    name: "Accounts"
+    version: "0.0.1"
+    profile: ${spring.profiles.active}
+  serverInfo:
+    port: ${accounts.server.port}
+
+#actuator
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+application:
+  allow-get-accounts: ${accounts.allow-get-accounts}
+
+eureka:
+  client: ${eureka-client}
