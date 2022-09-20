@@ -13,7 +13,7 @@ spring:
       hibernate:
         ddl-auto: ${accounts.spring.jpa.hibernate.ddl-auto}
 server:
-  port: 9999
+  port: 9998
 #server:
  # port: ${accounts.server.port}
 
