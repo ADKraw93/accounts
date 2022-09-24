@@ -1,6 +1,6 @@
-import org.springframework.cloud.contract.verifier.config.TestFramework
+//import org.springframework.cloud.contract.verifier.config.TestFramework
 
-buildscript {
+/*buildscript {
 	repositories {
 		mavenCentral()
 		mavenLocal()
@@ -9,7 +9,7 @@ buildscript {
 	dependencies {
 		classpath 'org.springframework.cloud:spring-cloud-contract-gradle-plugin:2.2.3.RELEASE'
 	}
-}
+}*/
 
 plugins {
 	id 'org.springframework.boot' version '2.3.0.RELEASE'
@@ -21,13 +21,13 @@ group = 'com.app'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
-apply plugin: 'spring-cloud-contract'
-apply plugin: 'maven-publish'
+//apply plugin: 'spring-cloud-contract'
+//apply plugin: 'maven-publish'
 
-repositories {
+/*repositories {
 	mavenCentral()
 	mavenLocal()
-}
+}*/
 
 configurations {
 	compileOnly {
@@ -35,9 +35,9 @@ configurations {
 	}
 }
 
-/*repositories {
+repositories {
 	mavenCentral()
-}*/
+}
 
 ext {
 	set('springCloudVersion', "Hoxton.SR6")
@@ -53,12 +53,12 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	compileOnly 'org.projectlombok:lombok:1.18.22'
-	annotationProcessor 'org.projectlombok:lombok:1.18.22'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
-	testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
-	testImplementation 'com.h2database:h2:1.4.200'
+	//testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
+	//testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
+	//testImplementation 'com.h2database:h2:1.4.200'
 	runtimeOnly 'mysql:mysql-connector-java'
 }
 
@@ -68,19 +68,19 @@ dependencyManagement {
 	}
 }
 
-contracts {
+/*contracts {
 	testFramework = TestFramework.JUNIT5
 	packageWithBaseClasses = 'com.kodilla.accounts'
-}
+}*/
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
 
-task stubsJar(type: Jar) {
-	classifier = "stubs"
-	into("META-INF/${project.group}/${project.name}/${project.version}/mappings") {
-		include('**/*.*')
-		from("${project.buildDir}/generated-snippets/stubs")
-	}
-}
+//task stubsJar(type: Jar) {
+//	classifier = "stubs"
+//	into("META-INF/${project.group}/${project.name}/${project.version}/mappings") {
+//		include('**/*.*')
+//		from("${project.buildDir}/generated-snippets/stubs")
+//	}
+//}
